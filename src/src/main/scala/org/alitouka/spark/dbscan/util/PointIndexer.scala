@@ -1,13 +1,10 @@
 package org.alitouka.spark.dbscan.util
 
-import java.lang.Math
 import org.alitouka.spark.dbscan.spatial.{PointSortKey, Point, Box}
 import org.apache.spark.broadcast.Broadcast
 import org.apache.commons.math3.ml.distance.DistanceMeasure
 import org.apache.spark.rdd.RDD
 import org.alitouka.spark.dbscan._
-import scala.Some
-
 private [dbscan] class PointIndexer (val numberOfPartitions: Int, val currentPartition: Int) {
 
   val multiplier = computeMultiplier (numberOfPartitions)

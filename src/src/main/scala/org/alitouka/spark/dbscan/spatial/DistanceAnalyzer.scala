@@ -1,13 +1,10 @@
 package org.alitouka.spark.dbscan.spatial
 
 import org.apache.spark.rdd.{ShuffledRDD, RDD}
-import org.apache.spark.SparkContext._
 import org.alitouka.spark.dbscan.spatial.rdd._
 import org.apache.commons.math3.ml.distance.DistanceMeasure
 import org.alitouka.spark.dbscan._
-import scala.collection.mutable.ListBuffer
 import org.alitouka.spark.dbscan.util.debug.DebugHelper
-import org.apache.spark.Logging
 import scala.collection.mutable
 
 
@@ -16,7 +13,7 @@ private [dbscan] class DistanceAnalyzer (
   private val partitioningSettings: PartitioningSettings = new PartitioningSettings ())
   extends Serializable
   with DistanceCalculation
-  with Logging {
+  /*with Logging */{
 
 
   implicit val distanceMeasure: DistanceMeasure = settings.distanceMeasure

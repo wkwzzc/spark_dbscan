@@ -3,7 +3,6 @@ package org.alitouka.spark.dbscan.spatial
 import org.alitouka.spark.dbscan.{PairOfAdjacentBoxIds, BoxId, DbscanSettings, RawDataSet}
 import org.alitouka.spark.dbscan.spatial.rdd.{BoxPartitioner, PartitioningSettings}
 import org.apache.spark.rdd.RDD
-import org.apache.spark.SparkContext._
 
 /** Calculates box-shaped regions for density-based partitioning (see [[org.alitouka.spark.dbscan.spatial.rdd.BoxPartitioner]] )
   * and for fast lookup of point's neighbors (see [[org.alitouka.spark.dbscan.spatial.PartitionIndex]]

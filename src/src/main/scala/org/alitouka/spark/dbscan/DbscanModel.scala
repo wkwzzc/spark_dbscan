@@ -1,9 +1,7 @@
 package org.alitouka.spark.dbscan
 
 import org.apache.spark.rdd.RDD
-import org.apache.spark.SparkContext._
 import org.alitouka.spark.dbscan.spatial.{Point, DistanceAnalyzer}
-import org.alitouka.spark.dbscan.spatial.rdd.PointsPartitionedByBoxesRDD
 
 /** Represents results calculated by DBSCAN algorithm.
   *

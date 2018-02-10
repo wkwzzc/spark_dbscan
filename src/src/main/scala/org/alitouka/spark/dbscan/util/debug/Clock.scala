@@ -1,8 +1,7 @@
 package org.alitouka.spark.dbscan.util.debug
 
-import org.apache.spark.Logging
 
-private [dbscan] class Clock extends Logging {
+private [dbscan] class Clock /*extends Logging*/ {
   val startTime = System.currentTimeMillis()
 
   def logTimeSinceStart (): Unit = {
@@ -13,6 +12,6 @@ private [dbscan] class Clock extends Logging {
     val currentTime = System.currentTimeMillis()
     val timeSinceStart = (currentTime - startTime) / 1000.0
 
-    logInfo (s"$message took $timeSinceStart seconds")
+   // logInfo (s"$message took $timeSinceStart seconds")
   }
 }

@@ -2,7 +2,7 @@ name := "spark_dbscan"
 
 organization := "org.alitouka"
 
-version := "0.0.4"
+version := "0.0.5"
 
 libraryDependencies += "org.apache.spark" % "spark-core_2.11" % "2.2.0" % "provided"
 
@@ -17,4 +17,3 @@ resolvers += "Akka Repository" at "http://repo.akka.io/releases/"
 resolvers += Resolver.sonatypeRepo("public")
 
 publishTo := Some(Resolver.file("file",  new File(Path.userHome.absolutePath+"/.m2/repository")))
-

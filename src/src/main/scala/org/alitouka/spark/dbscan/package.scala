@@ -2,8 +2,7 @@ package org.alitouka.spark
 
 import org.apache.spark.rdd.RDD
 import scala.collection.mutable.WrappedArray.ofDouble
-import org.apache.commons.math3.ml.distance.EuclideanDistance
-import org.alitouka.spark.dbscan.spatial.{PointSortKey, Point}
+import org.alitouka.spark.dbscan.spatial.{ Point}
 
 /** Contains implementation of distributed DBSCAN algorithm as well as tools for exploratory analysis.
   *

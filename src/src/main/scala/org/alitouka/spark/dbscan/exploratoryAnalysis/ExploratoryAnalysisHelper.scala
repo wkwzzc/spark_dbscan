@@ -1,7 +1,6 @@
 package org.alitouka.spark.dbscan.exploratoryAnalysis
 
 import org.apache.spark.rdd.RDD
-import  org.apache.spark.SparkContext._
 import scala.collection.mutable.ArrayBuffer
 import org.alitouka.spark.dbscan.DbscanSettings
 import org.alitouka.spark.dbscan.spatial.DistanceAnalyzer

@@ -4,7 +4,6 @@ import org.alitouka.spark.dbscan.spatial.rdd.PartitioningSettings
 import org.alitouka.spark.dbscan.DbscanSettings
 import scala.collection.mutable.{ListBuffer, ArrayBuffer}
 import org.alitouka.spark.dbscan.util.math.DoubleComparisonOperations._
-import scala.collection.parallel.ParIterable
 import org.alitouka.spark.dbscan.util.debug.Clock
 
 /** An indexing data structure which allows fast lookup of point's neighbors

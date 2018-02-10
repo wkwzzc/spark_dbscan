@@ -1,8 +1,9 @@
 package org.alitouka.spark.dbscan.spatial.rdd
 
 import org.apache.spark.rdd.{RDD, ShuffledRDD}
-import org.alitouka.spark.dbscan.spatial.{PointSortKey, BoxCalculator, Box, Point}
-import org.alitouka.spark.dbscan.PairOfAdjacentBoxIds
+import org.alitouka.spark.dbscan.spatial.{Box, BoxCalculator, Point, PointSortKey}
+import org.alitouka.spark.dbscan.{BoxId, PairOfAdjacentBoxIds}
+import org.apache.spark.broadcast.Broadcast
 
 
 /**
@@ -24,11 +25,11 @@ private [dbscan] class PointsInAdjacentBoxesRDD (prev: RDD[(PairOfAdjacentBoxIds
 private [dbscan] object PointsInAdjacentBoxesRDD {
 
   def apply (points: RDD[Point], boxesWithAdjacentBoxes: Iterable[Box]): PointsInAdjacentBoxesRDD = {
-    val adjacentBoxIdPairs = BoxCalculator.generateDistinctPairsOfAdjacentBoxIds(boxesWithAdjacentBoxes).toArray
+    val adjacentBoxIdPairs: Array[(BoxId, BoxId)] = BoxCalculator.generateDistinctPairsOfAdjacentBoxIds(boxesWithAdjacentBoxes).toArray
 
-    val broadcastBoxIdPairs = points.sparkContext.broadcast(adjacentBoxIdPairs)
+    val broadcastBoxIdPairs: Broadcast[Array[(BoxId, BoxId)]] = points.sparkContext.broadcast(adjacentBoxIdPairs)
 
-    val pointsKeyedByPairOfBoxes = points.mapPartitions {
+    val pointsKeyedByPairOfBoxes: RDD[((BoxId, BoxId), Point)] = points.mapPartitions {
       it => {
 
         val boxIdPairs = broadcastBoxIdPairs.value
